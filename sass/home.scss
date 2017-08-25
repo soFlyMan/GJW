@@ -1,5 +1,6 @@
 @import "reset";
 @import "mixin";
+@import "icon";
 
 .fl {
   float: left;
@@ -14,18 +15,67 @@
   right: 0;
   width: 32px;
   height: 100%;
+  text-align: center;
   background: #eaeaea;
+  color: #C40000;
   z-index: 100003;
+    .account {
+      margin-top: 200px;
+      width: 32px;
+      height: 16px;
 
-  .inner {
-    .iconfont {
-    font-family: iconfont!important;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: .2px;
-    font-style: normal;
     }
+    .cart {
+      width: 32px;
+      height: 94px;
+      line-height: 24px;
+      letter-spacing: 4px;
+    }
+    .bar-public {
+      width: 32px;
+      height: 16px;
+    }
+    .edit {
+      margin-top: 120px;
+    }
+
+}
+
+.account, .cart, .bar-public {
+  padding: 10px 0;
+  font-size: 13px;
+  cursor: pointer;
+  border-bottom: 1px solid #c8c8c8;
+
+  &:hover {
+    color: #FFF;
+    background-color: #c40000;
   }
+  &:hover+.fix-bar-msg {
+    right: 32px;
+    // opacity: 1;
+    @include opacity(1);
+  }
+}
+.fix-bar-container {
+  position: relative;
+  width: 32px;
+  height: auto;
+}
+.fix-bar-msg {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  width: 108px;
+  height: 36px;
+  font-size: 13px;
+  color: #FFF;
+  line-height: 36px;
+  background-color: #3E3A39;
+  // opacity: 0;
+  @include opacity(0);
+  // transition: all .5s;
+  @include transition(all .5s);
 }
 
 .top-fix-bar {
@@ -175,6 +225,14 @@ $search-width: 320px;
     border: 1px #ccc solid;
     color: #666;
     font-size: 13px;
+
+    .cart-img {
+      position: relative;
+      width: 16px;
+      height: 35px;
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }
 $carousel-width: 100%;
@@ -451,6 +509,18 @@ $goods-height: 400px;
   font-size: 20px;
   text-indent: 3px;
   padding: 18px 0 18px 0;
+
+  .title-right {
+
+  }
+  .title-switch {
+    .pre-btn {
+      // background: url(./img/);
+    }
+    .next-btn {
+
+    }
+  }
 }
 
 $item-width: 295px;
@@ -820,7 +890,7 @@ footer {
     }
   }
   p {
-    text-align: center;
+    text-align: right;
     font-size: 13px;
   }
   .img {
