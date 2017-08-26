@@ -1,12 +1,132 @@
 .item-bg {
   background-color: #F5F5F5;
-  height: 800px;
-  width: 100%; }
+  height: 800px; }
+  .item-bg .item-details {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto; }
+    .item-bg .item-details .breadcrumb {
+      font-size: 12px;
+      color: #797979;
+      line-height: 50px;
+      width: 1200px;
+      height: 50px; }
+    .item-bg .item-details .details-main {
+      height: 800px;
+      padding: 24px 36px;
+      background-color: #FFF; }
+      .item-bg .item-details .details-main .main-show {
+        width: 560px;
+        height: 486px; }
+      .item-bg .item-details .details-main .main-msg {
+        width: 520px;
+        height: 387px;
+        margin-left: 42px; }
+        .item-bg .item-details .details-main .main-msg .main-msg-title {
+          width: 480px;
+          height: 20px;
+          line-height: 20px;
+          font-size: 16px;
+          font-weight: 700; }
+        .item-bg .item-details .details-main .main-msg .redad {
+          font-size: 15px;
+          height: 20px;
+          line-height: 20px;
+          margin-top: 7px;
+          color: #e3393c; }
+        .item-bg .item-details .details-main .main-msg .main-msg-price {
+          position: relative;
+          left: -10px;
+          height: 77px;
+          width: 520px;
+          margin-top: 7px;
+          font-size: 13px;
+          color: #666;
+          padding: 10px 0 10px 10px;
+          background-color: #F3F3F3;
+          border-radius: 3px; }
+          .item-bg .item-details .details-main .main-msg .main-msg-price .new-price {
+            height: 38px;
+            line-height: 38px; }
+            .item-bg .item-details .details-main .main-msg .main-msg-price .new-price span {
+              color: #c40000; }
+            .item-bg .item-details .details-main .main-msg .main-msg-price .new-price span:first-child {
+              font-size: 14px;
+              margin-left: 20px; }
+            .item-bg .item-details .details-main .main-msg .main-msg-price .new-price .price {
+              font-size: 24px; }
+          .item-bg .item-details .details-main .main-msg .main-msg-price .sale-msg {
+            height: 38px;
+            line-height: 38px; }
+            .item-bg .item-details .details-main .main-msg .main-msg-price .sale-msg span {
+              margin-left: 10px;
+              color: #FFF;
+              background-color: #c40000; }
+        .item-bg .item-details .details-main .main-msg .adress {
+          margin-top: 4px;
+          font-size: 13px;
+          width: 400px; }
+          .item-bg .item-details .details-main .main-msg .adress div {
+            height: 32px;
+            line-height: 32px;
+            display: inline-block; }
+          .item-bg .item-details .details-main .main-msg .adress .area {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border: 1px solid #f4f4f4; }
+          .item-bg .item-details .details-main .main-msg .adress div:last-child {
+            color: #797979; }
+      .item-bg .item-details .details-main .pay {
+        margin-top: 17px;
+        width: 520px;
+        height: 36px;
+        border-top: 1px dashed #c9c9c9;
+        border-bottom: 1px dashed #c9c9c9;
+        line-height: 36px; }
+        .item-bg .item-details .details-main .pay p {
+          display: inline-block;
+          font-size: 13px;
+          color: #B4B4B4;
+          margin: 0 34px; }
+          .item-bg .item-details .details-main .pay p::after {
+            content: "";
+            border-right: 1px solid #c9c9c9;
+            margin-left: 34px; }
+      .item-bg .item-details .details-main .amount {
+        margin-top: 15px; }
+        .item-bg .item-details .details-main .amount span {
+          color: #666;
+          font-size: 12px;
+          line-height: 30px;
+          margin-right: 15px; }
+        .item-bg .item-details .details-main .amount input {
+          width: 28px;
+          height: 16px; }
+      .item-bg .item-details .details-main .buy {
+        margin-top: 15px; }
+        .item-bg .item-details .details-main .buy .buy-now, .item-bg .item-details .details-main .buy .add-to-cart {
+          display: inline-block;
+          text-align: center;
+          line-height: 40px;
+          width: 180px;
+          height: 40px;
+          border: 2px solid #C40000;
+          cursor: pointer; }
+        .item-bg .item-details .details-main .buy .buy-now {
+          background-color: #FFEEEE;
+          color: #c40000;
+          margin-right: 12px; }
+        .item-bg .item-details .details-main .buy .add-to-cart {
+          background-color: #c40000;
+          color: #fff; }
 
 .dis-list {
   display: none; }
 
-#item-list:hover + .dis-list {
+#item-list:hover .dis-list {
   display: block; }
 
 /*# sourceMappingURL=item.css.map */
