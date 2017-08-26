@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>item</title>
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/item.css">
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/jquery.cookie/jquery.cookie.js"></script>
+  <!-- log -->
+  <script src="./js/log.js"></script>
+  <!-- 轮播图 -->
+  <script src="./js/carousel.js"></script>
+  <!--返回顶部-->
+  <script src="./js/up.js"></script>
+  <!-- 模拟json数据-->
+  <script src="./js/data.js"></script>
+  <script>
+  $(function() {
+    var params = location.search.substring(1)
+    var id = getParam(params, "id")
+    // $.get("json/items.json", function(data) {
+      for(var i = 0; i < data.length; i++) {
+        if(data[i].id == id) {
+          insertData(data[i])
+          break;
+        }
+      }
+      //插入对应数据
+    // })
+
+    function insertData(obj) {
+
+    }
+  //  拆分字符串
+    function getParam(params, key) {
+      var arr = params.split("&")
+      for(var i = 0; i < arr.length; i++) {
+        var str = arr[i]
+        var arr2 = str.split("=")
+        if(arr2[0] == key) {
+          return arr2[1]
+        }
+      }
+      return ""
+    }
+
+  })
+  </script>
+</head>
+<body>
+
+<div class="right-fix-bar">
+  <div class="fix-bar-container">
+    <div class="account">
+      <span class="iconfont icon-wode"></span>
+    </div>
+  <div class="fix-bar-msg">会员中心</div>
+  </div>
+  <div class="cart">
+    <span class="iconfont icon-cart"></span>
+    <span>购物车</span>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public">
+      <span>券</span>
+    </div>
+    <div class="fix-bar-msg">
+    我的优惠券
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public">
+      <span class="iconfont icon-accountcollection"></span>
+    </div>
+    <div class="fix-bar-msg">
+    我的收藏
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public">
+      <span class="iconfont icon-erweima"></span>
+    </div>
+    <div class="fix-bar-msg">
+    我的优惠券
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public">
+      <span class="iconfont icon-dianzan"></span>
+    </div>
+    <div class="fix-bar-msg">
+    我的优惠券
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public">
+      <span class="iconfont icon-kefu-copy"></span>
+    </div>
+    <div class="fix-bar-msg">
+    在线客服
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public edit">
+      <span class="iconfont icon-edit"></span>
+    </div>
+    <div class="fix-bar-msg">
+    用户反馈
+    </div>
+  </div>
+  <div class="fix-bar-container">
+    <div class="bar-public" id="up">
+      <span class="iconfont icon-up"></span>
+    </div>
+    <div class="fix-bar-msg">
+    返回顶部
+    </div>
+  </div>
+</div>
+
+<div class="top-fix-bar">
+
+</div>
+
+<div class="nav-container">
+  <div class="top-nav">
+    <div><span>购酒网APP</span></div>
+    <ul>
+      <li>Hi,请<a href="#">登录</a><span>/&nbsp;</span><a href="#">注册</a></li>
+      <li><a href="#">我的订单</a></li>
+      <li><a href="#">个人中心</a></li>
+      <li><a href="#">在线客服</a></li>
+      <li><a href="#">购酒公告</a></li>
+      <li><a href="#">帮助</a></li>
+      <li><a href="#">提意见</a></li>
+      <li><a href="#"><em>☏</em>&nbsp;&nbsp;400-722-1919</a><a></li>
+    </ul>
+  </div>
+</div>
+<div class="big-img">
+<img src="./img/big-img.jpg" alt="" >
+</div>
+
+<div class="top-item">
+  <div class="top-item-img">
+  <a href="#"><img src="./img/logo1.jpg" alt=""></a>
+  <a href="#"><img src="./img/top-item1.gif" alt=""></a>
+  </div>
+  <div class="search">
+    <input type="text" placeholder="茅台飞天">
+    <span class="search-text">搜索</span>
+    <ul>
+      <li><a href="#">茅台</a></li>
+      <li><a href="#">五粮液</a></li>
+      <li><a href="#">拉菲</a></li>
+      <li><a href="#">奔富</a></li>
+      <li><a href="#">洋河</a></li>
+      <li><a href="#">黄尾袋鼠</a></li>
+      <li><a href="#">剑南春</a></li>
+      <li><a href="#">泸州老窖</a></li>
+    </ul>
+  </div>
+    <div class="shopping-cart">
+      <div class="cart-img">
+        <img src="./images/cart.png" alt="">
+      </div>
+      <span>去购物车结算</span>
+      <em>></em>
+    </div>
+</div>
+
+<div class="item-nav">
+  <ul>
+    <li><a href="#" id="item-list">全部分类</a>
+      <ul class="dis-list">
+        <li>
+          <img src="img/ax-icon.png" alt="">
+          <a href="">一键选购</a>
+          <em>›</em>
+          <div class="box">
+            <div class="box-lt fl clearfix">
+              <div class="box-title">购酒推荐</div>
+              <div class="box-list box-list-public">
+                <div><a href="" class="box-color-0">特卖会</a></div>
+                <div><a href="" class="box-color-1">高端收藏</a></div>
+                <div><a href="" class="box-color-2">大坛酒专场</a></div>
+                <div><a href="" class="box-color-3">整箱购</a></div>
+                <div><a href="" class="box-color-4">婚宴酒</a></div>
+                <div><a href="" class="box-color-1">清仓价</a></div>
+                <div><a href="" class="box-color-2">年份好酒</a></div>
+              </div>
+              <div class="box-list-width-1 fl clearfix">
+                <div class="box-title">红酒洋酒专场</div>
+                <div class="box-list box-list-public box-list-width-1">
+                  <div><a href="" class="box-color-0">洋酒</a></div>
+                  <div><a href="" class="box-color-1">钜惠</a></div>
+                  <div><a href="" class="box-color-2">拉菲专区</a></div>
+                  <div><a href="" class="box-color-3">奔富专区</a></div>
+                  <div><a href="" class="box-color-4">人头马专区</a></div>
+                </div>
+              </div>
+              <div class="box-list-width-1 fr clearfix">
+                <div class="box-title">名庄红酒</div>
+                <div class="box-list box-list-public">
+                  <div><a href="" class="box-color-0">名庄直采拉</a></div>
+                  <div><a href="" class="box-color-1">图庄园</a></div>
+                </div>
+              </div>
+
+              <div class="box-title box-list-width-1 clearfix">特色专区</div>
+              <div class="box-list box-list-public box-list-width-1">
+                <div><a href="" class="box-color-4">舒心酱油</a></div>
+              </div>
+
+            </div>
+            <div class="box-rt fr clearfix"></div>
+          </div>
+        </li>
+        <li><a href="">白酒</a>
+          <em>›</em>
+          <div class="box">白酒</div>
+        </li>
+        <li><a href="">葡萄酒</a>
+          <em>›</em>
+          <div class="box">葡萄酒</div>
+        </li>
+        <li><a href="">洋酒</a>
+          <em>›</em>
+          <div class="box">洋酒</div>
+        </li>
+        <li><a href="">黄酒</a>
+          <em>›</em>
+          <div class="box">黄酒</div>
+        </li>
+        <li><a href="">清酒</a>
+          <em>›</em>
+          <div class="box">清酒</div>
+        </li>
+        <li><a href="">啤酒</a>
+          <em>›</em>
+          <div class="box">啤酒</div>
+        </li>
+        <li><a href="">酒具周边</a>
+          <em>›</em>
+          <div class="box">酒具周边</div>
+        </li>
+        <li><a href="">新品</a>
+          <em>›</em>
+        </li>
+        <li><a href="">清仓</a>
+          <em>›</em>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">首页</a></li>
+    <li><a href="#">特卖会</a></li>
+    <li><a href="#">进口馆</a></li>
+    <li><a href="#">居酒屋</a></li>
+    <li><a href="#">商家采销</a></li>
+    <li><a href="#">高端收藏</a></li>
+    <li><a href="#">购酒主推</a></li>
+    <li><a href="#">尾货直批</a></li>
+  </ul>
+</div>
+
+
+
+
+
+<div class="item-bg">
+</div>
+
+<footer>
+  <div class="footer-1">
+    <div class="footer-1-top">
+      <div class="footer-1-right fl">
+        <div class="kf">客服热线 7x14小时（08:00-22:00）贴心服务</div>
+        <div class="tel">400-722-4019</div>
+      </div>
+      <div class="online fl">
+        <a href="">点击咨询在线客服</a>
+      </div>
+      <div class="qr fr clearfix">
+        <div class="footer-1-msg fl">
+          <p>超万平方米仓储体验店</p>
+          <p>上海松江区茂盛路202弄18号</p>
+          <p>客服邮箱：kf@goujiuwang.com</p>
+          <p>扫描二维码，掌握一手优惠资讯</p>
+        </div>
+        <div class="qr-img">
+          <img src="./img/APP.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="footer-link">
+      <dl>
+        <dt>新手指南</dt>
+        <dd><a href="">用户协议</a></dd>
+        <dd><a href="">常见问题</a></dd>
+        <dd><a href="">网站购物流程</a></dd>
+        <dd><a href="">会员制度</a></dd>
+      </dl>
+      <dl>
+        <dt>如何付款</dt>
+        <dd><a href="">如何付款</a></dd>
+        <dd><a href="">发票制度说明</a></dd>
+        <dd><a href="">电子券说明</a></dd>
+        <dd><a href="">虚拟账户支付</a></dd>
+      </dl>
+      <dl>
+        <dt>配送方式</dt>
+        <dd><a href="">配送收费标准</a></dd>
+        <dd><a href="">配送时间</a></dd>
+        <dd><a href="">货到付款支持城市</a></dd>
+        <dd><a href="">实体加盟服务商</a></dd>
+      </dl>
+      <dl>
+        <dt>售后服务</dt>
+        <dd><a href="">如何办理退换货</a></dd>
+        <dd><a href="">如何退换货</a></dd>
+        <dd><a href="">联系客服</a></dd>
+      </dl>
+      <dl>
+        <dt>关于我们</dt>
+        <dd><a href="">了解购酒网</a></dd>
+        <dd><a href="">招兵买马</a></dd>
+        <dd><a href="">联系我们</a></dd>
+        <dd><a href="">隐私声明</a></dd>
+        <dd><a href="">友情链接</a></dd>
+      </dl>
+      <dl>
+        <dt>合作共赢</dt>
+        <dd><a href="">品牌馆</a></dd>
+        <dd><a href="">大客户采购 new</a></dd>
+        <dd><a href="">网站推广 new</a></dd>
+        <dd><a href="">供货商供货 new</a></dd>
+      </dl>
+    </div>
+  </div>
+  <div class="footer-2">
+    <img src="./footer.png" alt="">
+    <div class="f-link">
+      <ul>
+        <li><a href="">创业</a></li>
+        <li><a href="">品牌加盟商</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">创业</a></li>
+        <li><a href="">品牌加盟商</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">创业</a></li>
+        <li><a href="">品牌加盟商</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">创业</a></li>
+        <li><a href="">品牌加盟商</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+        <li><a href="">订单服务</a></li>
+      </ul>
+    </div>
+    <p class="copyright">
+                    Copyright® 2009-2017 gjw.com, All Rights Reserved 	购酒网(上海)供应链管理有限公司   版权所有
+                </p>
+    <div class="img">
+      <a class="beian" href=""></a>
+      <a class="gsjg" href=""></a>
+      <a class="gsxz" href=""></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

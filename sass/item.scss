@@ -1,0 +1,13 @@
+.item-bg {
+  background-color: #F5F5F5;
+  height: 800px;
+  width: 100%;
+}
+
+.dis-list {
+  display: none;
+}
+
+#item-list:hover+.dis-list {
+  display: block;
+}
