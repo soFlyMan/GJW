@@ -123,6 +123,20 @@
           background-color: #c40000;
           color: #fff; }
 
+.cart-c {
+  position: relative;
+  width: 32px;
+  height: 114px; }
+  .cart-c .add-success {
+    display: none;
+    position: absolute;
+    top: -36px;
+    right: 32px;
+    background-color: #FFF;
+    border: 1px solid #c9c9c9;
+    width: 550px;
+    height: 268px; }
+
 .dis-list {
   display: none; }
 

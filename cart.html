@@ -4,78 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>item</title>
+  <title>cart</title>
   <link rel="stylesheet" href="./css/home.css">
-  <link rel="stylesheet" href="./css/item.css">
+  <link rel="stylesheet" href="./css/cart.css">
   <script src="./node_modules/jquery/dist/jquery.min.js"></script>
   <script src="./node_modules/jquery.cookie/jquery.cookie.js"></script>
   <!-- log -->
   <script src="./js/log.js"></script>
-  <!-- 轮播图 -->
-  <script src="./js/carousel.js"></script>
-  <!--返回顶部-->
+
   <script src="./js/up.js"></script>
-  <!-- 模拟json数据-->
-  <script src="./js/data.js"></script>
   <script>
-  $(function() {
-    var obj = {}
-    var params = location.search.substring(1)
-    var id = getParam(params, "id")
-    // $.get("json/items.json", function(data) {
-      for(var i = 0; i < data.length; i++) {
-        if(data[i].id == id) {
-          insertData(data[i])
-          obj = data[i]
-          break;
-        }
-      }
-      //插入对应数据
-    // })
-    log(obj)
-    $(".add-to-cart").on('click', function() {
-      // log($.cookie())
-      var arr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : []
-      //存在相同的商品，num++
-      for(var i = 0; i < arr.length; i++) {
-        if(arr[i].id == obj.id) {
-          arr[i].num++
-          break
-        }
-      }
-      //不存在相同的商品
-      if(i == arr.length) {
-        obj.num = 1
-        arr.push(obj)
+    $(function() {
+      var arrC = JSON.parse($.cookie("cart"))
+      var yh = 12
+      var table = $(".goods table")
+      for(var i = 0; i < arrC.length; i++) {
+        var obj = arrC[i]
+        var tr = $("<tr></tr>").appendTo(table)
+        $("<td class='cb-r1'></td>").appendTo(tr)
+        $("<td class='cb-r2'>" + obj.name + "</td>").appendTo(tr)
+        $("<td class='cb-r3'>" + obj.price + "</td>").appendTo(tr)
+        $("<td class='cb-r4'>" + yh * obj.num + "</td>").appendTo(tr)
+        $("<td class='cb-r5'>" + obj.num + "</td>").appendTo(tr)
+        $("<td class='cb-r6'>" + (obj.price - yh) * obj.num + "</td>").appendTo(tr)
+        $("<td class='cb-r7'>删除</td>").appendTo(tr)
+
       }
 
-      $.cookie("cart", JSON.stringify(arr), { expires: 10, })
-
-      log($.cookie("cart"))
-
-      $(".add-success").css("display","block")
+      // <tr>
+      //   <td class="cb-r1"></td>
+      //   <td class="cb-r2">46度 口子窖 五年口子窖酒（2009年产） 400ml		</td>
+      //   <td class="cb-r3">99</td>
+      //   <td class="cb-r4">21</td>
+      //   <td class="cb-r5">1</td>
+      //   <td class="cb-r6">78</td>
+      //   <td class="cb-r7">删除</td>
+      // </tr>
     })
-
-    function insertData(obj) {
-      // log(obj)?
-      $(".item-name").html(obj.name)
-      $(".price").html(obj.price)
-      $(".show").attr("src", obj.img)
-    }
-  //  拆分字符串
-    function getParam(params, key) {
-      var arr = params.split("&")
-      for(var i = 0; i < arr.length; i++) {
-        var str = arr[i]
-        var arr2 = str.split("=")
-        if(arr2[0] == key) {
-          return arr2[1]
-        }
-      }
-      return ""
-    }
-
-  })
   </script>
 </head>
 <body>
@@ -87,15 +52,9 @@
     </div>
   <div class="fix-bar-msg">会员中心</div>
   </div>
-  <div class="cart-c">
     <div class="cart">
       <span class="iconfont icon-cart"></span>
       <span>购物车</span>
-    </div>
-    <div class="add-success">
-      <span>加入购物车成功</span>
-      <div>您可以去<a href="cart.html">购物车</a>结算</div>
-    </div>
   </div>
   <div class="fix-bar-container">
     <div class="bar-public">
@@ -304,54 +263,29 @@
 
 
 <!-- 商品详情 -->
-<div class="item-bg">
-  <div class="item-details">
-    <div class="breadcrumb">
-      <span><a href="index.html">首页&nbsp; >&nbsp;</a></span>
-      <span> 葡萄酒 &nbsp;>&nbsp;</span>
-      <span> 奔富&nbsp; >&nbsp; &nbsp;</span>
-      <span class="item-name">澳大利亚 奔富 洛神山庄 设拉子赤霞珠 红葡萄酒 750ml</span>
-    </div>
+<div class="cart-list-bg">
+  <div class="cart-list">
+    <h1>我的购物车</h1>
+    <div class="order-info">
+      <dl class="cart-box">
+        <dt>
+          <span class="cb-r1">全选</span>
+          <span class="cb-r2">商品</span>
+          <span class="cb-r3">单价</span>
+          <span class="cb-r4">优惠</span>
+          <span class="cb-r5">数量</span>
+          <span class="cb-r6">小记</span>
+          <span class="cr-r7">操作</span>
+        </dt>
+      </dl>
+      <dd class="goods">
+        <table>
 
-    <div class="details-main clearfix">
-      <div class="main-show fl">
-        <img class="show" src="" alt="">
-      </div>
-      <div class="main-msg fl">
-        <div class="main-msg-title item-name">澳大利亚 奔富 洛神山庄 设拉子赤霞珠 红葡萄酒 750ml</div>
-        <div class="redad">酒友醉爱，澳洲奔富</div>
-        <div class="main-msg-price">
-          <div class="new-price">活动价<span>¥&nbsp;</span><span class="price">45</span></div>
-          <div class="sale-msg">促销信息<span>购酒特惠</span></div>
-        </div>
-        <div class="adress">
-          <div>配送至：</div>
-          <div class="area">
-            上海 ∨
-          </div>
-          <div>单笔订单不满100元，收运费10元  满百包邮</div>
-        </div>
-        <div class="pay">
-          <p>关注度&nbsp;<span>47317</span></p>
-          <p>累计评价&nbsp;<span>57</span></p>
-          <p>送积分&nbsp;<span>45</span></p>
-        </div>
-        <div class="amount">
-            <span>数量</span>
-            <input type="text" value="1">
-        </div>
-        <div class="buy">
-          <div class="buy-now">
-            立刻购买
-          </div>
-          <div class="add-to-cart">
-            加入购物车
-          </div>
-        </div>
-      </div>
+        </table>
+      </dd>
     </div>
-
   </div>
+
 </div>
 <!--  -->
 

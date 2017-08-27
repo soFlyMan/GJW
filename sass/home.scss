@@ -536,6 +536,7 @@ $item-height: 300px;
   font-size: 13px;
   background-color: #FFF;
   text-align: center;
+  cursor: pointer;
   @include transition(all .3s);
 
   img {

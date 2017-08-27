@@ -12,4 +12,8 @@ window.onload = function() {
       document.body.scrollTop = document.documentElement.scrollTop =  x - speed
     }, 30);
   }
+
+  $(".cart").on("click", function() {
+    location.href = "cart.html"
+  })
 }
