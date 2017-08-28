@@ -24,6 +24,37 @@
       .main-show {
         width: 560px;
         height: 486px;
+
+        .img-show {
+          width: 420px;
+          height: 420px;
+          position: relative;
+          border: 1px solid #c40000;
+          overflow: hidden;
+
+          .show {
+            // 展示图片大小
+            width: 420px;
+            height: 420px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 1;
+            z-index: 2;
+            cursor: zoom-in;
+          }
+          .show-big {
+            // 放大后的图片大小
+            width: 840px;
+            height: 840px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            z-index: 1;
+          }
+
+        }
       }
 
       .main-msg {

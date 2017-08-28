@@ -20,21 +20,23 @@
   <script>
   $(function() {
     var obj = {}
+    // 获取url地址栏传过来的值
     var params = location.search.substring(1)
     var id = getParam(params, "id")
     // $.get("json/items.json", function(data) {
       for(var i = 0; i < data.length; i++) {
+        // 在json的商品列表中寻找商品id为与地址栏id相同的商品，
+        // 并将它插入到html中
         if(data[i].id == id) {
           insertData(data[i])
+          // 将该商品的所有信息赋给全局变量obj，以进行后面的插入数据的工作
           obj = data[i]
           break;
         }
       }
-      //插入对应数据
-    // })
-    log(obj)
+    // )}
+    // 点击加入购物车
     $(".add-to-cart").on('click', function() {
-      // log($.cookie())
       var arr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : []
       //存在相同的商品，num++
       for(var i = 0; i < arr.length; i++) {
@@ -48,21 +50,22 @@
         obj.num = 1
         arr.push(obj)
       }
-
+      // 将arr设置为cart cookie
       $.cookie("cart", JSON.stringify(arr), { expires: 10, })
 
-      log($.cookie("cart"))
-
+      // 显示加入购物车成功
       $(".add-success").css("display","block")
     })
 
     function insertData(obj) {
-      // log(obj)?
+      // 插入数据到html中
       $(".item-name").html(obj.name)
       $(".price").html(obj.price)
       $(".show").attr("src", obj.img)
+      $(".show-big").attr("src", obj.img)
     }
-  //  拆分字符串
+
+  //  拆分url地址栏传过来的字符串方法
     function getParam(params, key) {
       var arr = params.split("&")
       for(var i = 0; i < arr.length; i++) {
@@ -74,6 +77,36 @@
       }
       return ""
     }
+
+    // 加入鼠标移入事件，放大效果
+    $(".show").on("mouseover", function() {
+      // 隐藏展示图片，显示放大图片
+      $(this).css("opacity", 0)
+      $(".show-big").css("opacity", 1)
+
+      // 420 => 展示图片大小; 840 => 放大后的图片大小
+      $(".show").on("mousemove", function(e) {
+        var e = e || event
+        // 鼠标移动比例
+        var pX = e.offsetX / 420
+        var pY = e.offsetY / 420
+        // 放大后的图片对应所需修改的的坐标值
+        var oT = (parseInt(840 * pY) > 420)? 420 : parseInt(840 * pY)
+        var oL = (parseInt(840 * pX) > 420)? 420 : parseInt(840 * pX)
+
+        var bigImg = $(".show-big")
+        bigImg.css("top",  - oT)
+        bigImg.css("left", - oL)
+
+      })
+
+    })
+
+    $(".show").on("mouseout", function() {
+      $(this).css("opacity", 1)
+      $(".show-big").css("opacity", 0)
+
+    })
 
   })
   </script>
@@ -315,7 +348,10 @@
 
     <div class="details-main clearfix">
       <div class="main-show fl">
-        <img class="show" src="" alt="">
+        <div class="img-show">
+          <img class="show" src="" alt="">
+          <img class="show-big" src="" alt="">
+        </div>
       </div>
       <div class="main-msg fl">
         <div class="main-msg-title item-name">澳大利亚 奔富 洛神山庄 设拉子赤霞珠 红葡萄酒 750ml</div>

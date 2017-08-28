@@ -9,7 +9,7 @@ $(function() {
       var item = data[i]
       var li = $("<li class='item-public'></li>").appendTo($(".bgzk-rt ul"))
       $("<div class='item-public-style'>" + item.msg + "</div>").appendTo(li)
-      $("<img src=" + item.img +">").appendTo(li)
+      $("<img src=" + item.img + ">").appendTo(li)
       $("<div class='item-public-msg'>" + item.name + "</div>").appendTo(li)
       $("<div>.</div>").appendTo(li)
       $("<div class='item-public-price'>" + item.price + "元</div>").appendTo(li)
