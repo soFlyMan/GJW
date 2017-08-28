@@ -13,35 +13,7 @@
   <script src="./js/log.js"></script>
 
   <script src="./js/up.js"></script>
-  <script>
-    $(function() {
-      var arrC = JSON.parse($.cookie("cart"))
-      var yh = 12
-      var table = $(".goods table")
-      for(var i = 0; i < arrC.length; i++) {
-        var obj = arrC[i]
-        var tr = $("<tr></tr>").appendTo(table)
-        $("<td class='cb-r1'></td>").appendTo(tr)
-        $("<td class='cb-r2'>" + obj.name + "</td>").appendTo(tr)
-        $("<td class='cb-r3'>" + obj.price + "</td>").appendTo(tr)
-        $("<td class='cb-r4'>" + yh * obj.num + "</td>").appendTo(tr)
-        $("<td class='cb-r5'>" + obj.num + "</td>").appendTo(tr)
-        $("<td class='cb-r6'>" + (obj.price - yh) * obj.num + "</td>").appendTo(tr)
-        $("<td class='cb-r7'>删除</td>").appendTo(tr)
-
-      }
-
-      // <tr>
-      //   <td class="cb-r1"></td>
-      //   <td class="cb-r2">46度 口子窖 五年口子窖酒（2009年产） 400ml		</td>
-      //   <td class="cb-r3">99</td>
-      //   <td class="cb-r4">21</td>
-      //   <td class="cb-r5">1</td>
-      //   <td class="cb-r6">78</td>
-      //   <td class="cb-r7">删除</td>
-      // </tr>
-    })
-  </script>
+  <script src="./js/cart.js"></script>
 </head>
 <body>
 
@@ -280,7 +252,15 @@
       </dl>
       <dd class="goods">
         <table>
-
+<!--<tr>
+  <td class="cb-r1"></td>
+  <td class="cb-r2">46度 口子窖 五年口子窖酒（2009年产） 400ml		</td>
+  <td class="cb-r3">99</td>
+  <td class="cb-r4">21</td>
+  <td class="cb-r5">1</td>
+  <td class="cb-r6">78</td>
+  <td class="cb-r7">删除</td>
+</tr>  -->
         </table>
       </dd>
     </div>

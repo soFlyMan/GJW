@@ -50,6 +50,9 @@
     display: inline-block;
     text-align: center;
     font-size: 13px; }
+  .goods .del {
+    cursor: pointer;
+    color: #c40000; }
 
 .cb-r1 {
   width: 113px; }
